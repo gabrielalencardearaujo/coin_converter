@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Conversor de Moedas</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/assets/css/style.css">
+  <link rel="stylesheet" href="../src/assets/fontawesome/css/all.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../src/assets/img/Cifrão_symbol.svg.png" type="image/x-icon">
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Conversor de Moedas</h1>
+  </header>
+
+  <section class="container">
+    <div class="firstInput">
+      <label for="valorMoeda">Value: </label>
+      <input 
+      class="input_Value_Coin" 
+      type="number" 
+      id="valorMoeda" 
+      min="0.00" 
+      max="9999999999.99"
+      step="0.01"
+      autofocus 
+      required>
+    </div>
+
+    <div class="divSelectCoin">
+      <span>from: </span>
+      <select id="fromCoin">
+        <option value=""> --- </option>
+      </select>
+    </div>
+
+    <div class="divSelectCoin">
+      <span>to: </span>
+      <select name="" id="toCoin">
+        <option value=""> --- </option>
+      </select>
+    </div>
+
+    <div class="divSelectCoin">
+      <input 
+      class="input_show_Coin" 
+      type="text" 
+      id="valorConversao" 
+      disabled>
+    </div>
+
+    <div class="divBTN">
+      <button class="btn" type="submit">Swap </button>
+    </div>
+
+  </section>
+
+
+
+  <!--JS code-->
+  <script src="./assets/js/bundle.js"></script>
+</body>
+
+</html>
