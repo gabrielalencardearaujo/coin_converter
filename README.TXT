@@ -1,5 +1,5 @@
-<JS>
-  - Formatar o valor das moedas para separar casas decimais.
+Conversor de moedas.
 
+API utilizada: https://docs.awesomeapi.com.br/api-de-moedas
 
 
