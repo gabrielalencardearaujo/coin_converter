@@ -2,7 +2,7 @@ const path = require('path'); // CommonJS
 
 module.exports = {
   mode: 'production',
-  entry: './src/main.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'public', 'assets', 'js'),
     filename: 'bundle.js'
@@ -10,17 +10,15 @@ module.exports = {
   module: {
     rules: [{
       exclude: /node_modules/,
-      test: /\.js$/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/env']
-        }
-      }
+      test: /\.tsx?$/,
+      use: 'ts-loader',
     }, {
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
     }]
   },
-  devtool: 'source-map'
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  devtool: 'inline-source-map',
 };
