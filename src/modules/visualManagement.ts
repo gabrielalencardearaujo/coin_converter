@@ -31,6 +31,9 @@ export class VisualManagement implements VisualManagement {
 
   searchPairs(siglaMoeda: string) {
     this.selectSecondCoin.innerHTML = '';
+    
+    if(!siglaMoeda) return this.errorNoValues() ;
+
     for (let coins of paresMoedas[siglaMoeda]) {
       for (let nameCoin in baseCoins) {
         if (coins == nameCoin) {

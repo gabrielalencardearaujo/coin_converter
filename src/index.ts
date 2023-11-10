@@ -19,7 +19,14 @@ visualManagement.listAllCoins();
 
 // // Evento clique swap.
 btnSwap.onclick = () => {
-  (!(choiceCoinFrom.value === '' || choiceCoinTo.value === '' || inputFrom.value === '' || inputFrom.value === '')) ? requestAPI.managerAPP() : visualManagement.errorNoValues();
+  if (
+    choiceCoinFrom.value === '' ||
+    choiceCoinTo.value === '' ||
+    inputFrom.value === ''
+  )
+    return visualManagement.errorNoValues();
+
+  requestAPI.managerAPP()
 }
 
 choiceCoinFrom.onblur = () => {
