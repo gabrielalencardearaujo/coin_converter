@@ -1,4 +1,4 @@
-import { VisualManagement } from './visualManagement.js';
+import { VisualManagement } from './visualManagement.ts';
 
 export class RequestAPI {
   constructor(choiceCoinFrom, choiceCoinTo, inputFrom, inputTo) {
@@ -31,10 +31,24 @@ export class RequestAPI {
         return data[paridade].bid;
       })
       .catch(error => {
-        console.log('estou aqui')
         this.visualManagement.errorNoValues()
       });
   }
+
+  // async requestCoins(fromCoin, toCoin) {
+  //   let paridade = `${fromCoin}=${toCoin}`;
+  //   const response = await fetch(`https://economia.awesomeapi.com.br/last/${paridade}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Accept-Charset': 'utf-8'
+  //     }
+  //   })
+  //   const json = await response.json();  
+  //   paridade = paridade.replace('-', '')
+  //   return json
+  //   console.log(json)
+  // }
 
   conversor(cotacao) {
     return this.inputFirstCoin.value * Number(cotacao)

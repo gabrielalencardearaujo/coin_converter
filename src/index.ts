@@ -1,49 +1,31 @@
 // import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import './assets/css/style.css';
-import { RequestAPI } from './modules/requestAPI.js';
-import { VisualManagement } from './modules/visualManagement.js';
-import { paresMoedas } from './modules/database_pares.js';
+import { RequestAPI } from './modules/requestAPI';
+import { VisualManagement } from './modules/visualManagement';
 // API: https://docs.awesomeapi.com.br/api-de-moedas
 
-(function () {
-  const btnSwap = document.querySelector('.btn') as HTMLButtonElement;
-  const choiceCoinFrom = document.querySelector('#fromCoin') as HTMLSelectElement;
-  const choiceCoinTo = document.querySelector('#toCoin') as HTMLSelectElement;
-  const inputFrom = document.querySelector('.input_Value_Coin') as HTMLInputElement;
-  const inputTo = document.querySelector('.input_show_Coin') as HTMLInputElement;
-  // document.getElementById("valorMoeda").step = "any";
+const btnSwap = document.querySelector('.btn') as HTMLButtonElement;
+const choiceCoinFrom = document.querySelector('#fromCoin') as HTMLSelectElement;
+const choiceCoinTo = document.querySelector('#toCoin') as HTMLSelectElement;
+const inputFrom = document.querySelector('.input_Value_Coin') as HTMLInputElement;
+const inputTo = document.querySelector('.input_show_Coin') as HTMLInputElement;
 
-  const visualManagement = new VisualManagement(choiceCoinFrom, inputFrom, inputTo, choiceCoinTo)
-  const requestAPI = new RequestAPI(choiceCoinFrom, choiceCoinTo, inputFrom, inputTo);
+const visualManagement = new VisualManagement(choiceCoinFrom, inputFrom, inputTo, choiceCoinTo);
 
-  visualManagement.listAllCoins(paresMoedas)
+const requestAPI = new RequestAPI(choiceCoinFrom, choiceCoinTo, inputFrom, inputTo);
 
-  btnSwap.onclick = () => {
-    (!(choiceCoinFrom.value === '' || choiceCoinTo.value === '' || inputFrom.value === '' || inputFrom.value === '')) ? requestAPI.managerAPP() : visualManagement.errorNoValues();
-  }
+visualManagement.listAllCoins();
 
-  choiceCoinFrom.onblur = () => {
-    visualManagement.searchDataBase(choiceCoinFrom)
-    visualManagement.searchPairs(paresMoedas, choiceCoinFrom.value)
-  }
+// // Evento clique swap.
+btnSwap.onclick = () => {
+  (!(choiceCoinFrom.value === '' || choiceCoinTo.value === '' || inputFrom.value === '' || inputFrom.value === '')) ? requestAPI.managerAPP() : visualManagement.errorNoValues();
+}
 
-})();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+choiceCoinFrom.onblur = () => {
+  visualManagement.showNameCoin(choiceCoinFrom.value)
+  visualManagement.searchPairs(choiceCoinFrom.value)
+}
 
 
 
