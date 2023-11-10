@@ -1,12 +1,14 @@
 import { baseCoins } from './makeshift_database';
 import { paresMoedas } from './database_pares';
 
-export class VisualManagement implements VisualManagement {
+export class VisualManagement {
   constructor(
     private selectFirstCoin: HTMLSelectElement, 
     private inputCoinFrom: HTMLInputElement, 
     private inputResult: HTMLInputElement, 
-    private selectSecondCoin: HTMLSelectElement) {}
+    private selectSecondCoin: HTMLSelectElement) {
+      this.listAllCoins()
+    }
 
   listAllCoins() {
     for (let coin in paresMoedas) {
@@ -43,8 +45,9 @@ export class VisualManagement implements VisualManagement {
     }
   }
   
-  showResult(result) {
-    this.inputResult.value = result
+  showResult(result: string) {
+    const formatResult = Number(result).toLocaleString('pt-br', { style: 'currency', currency: this.selectSecondCoin.value })
+    this.inputResult.value = formatResult;
   }
 
   // searchDataBase(firstCoin: string) {

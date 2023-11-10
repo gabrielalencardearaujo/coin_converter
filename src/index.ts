@@ -13,11 +13,9 @@ const inputTo = document.querySelector('.input_show_Coin') as HTMLInputElement;
 
 const visualManagement = new VisualManagement(choiceCoinFrom, inputFrom, inputTo, choiceCoinTo);
 
-const requestAPI = new RequestAPI(choiceCoinFrom, choiceCoinTo, inputFrom, inputTo);
+const requestAPI = new RequestAPI(choiceCoinFrom, choiceCoinTo, inputFrom, inputTo, visualManagement);
 
-visualManagement.listAllCoins();
-
-// // Evento clique swap.
+// Evento clique swap.
 btnSwap.onclick = () => {
   if (
     choiceCoinFrom.value === '' ||
@@ -26,7 +24,11 @@ btnSwap.onclick = () => {
   )
     return visualManagement.errorNoValues();
 
-  requestAPI.managerAPP()
+  requestAPI.requestCoins()
+  .then(valorParidadeMoedas => {
+    const conversao = requestAPI.conversor(valorParidadeMoedas)
+    visualManagement.showResult(conversao.toFixed(2))
+  });
 }
 
 choiceCoinFrom.onblur = () => {
