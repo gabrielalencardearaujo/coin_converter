@@ -22,6 +22,7 @@ body, html{
 /* HEADER */
 header{
   text-align: center;
+  margin-top: 100px;
 }
 
 h1{
@@ -35,13 +36,11 @@ h1{
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 20px auto;
-  min-width: 400px;
-  min-width: 364px;
-  max-width: 450px;
-  height: 500px;
+  max-width: 960px;
+  height: 300px;
   background-color: var(--color-secondary);
   padding: 20px;
   border-radius: 10px;
@@ -54,10 +53,15 @@ h1{
   height: 2em;
   width: 80%;
   caret-color: currentColor;
-  border: 1px solid currentColor;
-  border-radius: 5px;
+  outline: 1px solid currentColor;
   background-color: var(--color-secondary);
   text-align: center;
+  border: none;
+}
+
+.input_Value_Coin:focus {
+  outline: 2px solid currentColor;
+  border: none;
 }
 
 .input_show_Coin{
@@ -66,23 +70,19 @@ h1{
   text-align: center;
   color: currentColor;
   border: none;
-  border-bottom: 1px solid currentColor;
-  border-radius: 0px;
+  border: 1px solid currentColor;
 }
 
-.divSelectCoin, .firstInput{
+.firstInput{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 10px 0 40px 0;
 }
 
-.divSelectCoin:nth-child(4){
-  display: flex;
-  margin-top: 30px;
-  justify-content: center;
-  outline: none;
-  border: none;
+img {
+  margin: 0 60px;
 }
 
 option, #fromCoin, #toCoin{
@@ -90,9 +90,8 @@ option, #fromCoin, #toCoin{
   height: 2.7em;
   text-align: center;
   background-color: var(--color-primary);
-  border-radius: 5px;
   font-size: 1em;
-  width: 80%;
+  min-width: 80px;
   cursor: pointer;
 }
 
@@ -105,13 +104,11 @@ option, #fromCoin, #toCoin{
   background-color: var(--color-secondary);
   color: var(--color-text);
   border: none;
-  border-radius: 5px;
   transition: transform .5s;
+  cursor: pointer;
 }
 
 .btn:hover{
-  transform: scale(1.2);
-  transition: transform .5s;
-  cursor: pointer;
+  border: 1px solid white;
 }
 

@@ -23,12 +23,17 @@ export class VisualManagement {
   createOption(coin: string, input: HTMLSelectElement, nameCoin: string) {
     const option = document.createElement('option')
     option.setAttribute('value', `${coin}`)
-    option.textContent = `${coin}  /  ${nameCoin}`
+    option.textContent = `${coin} `
     input.appendChild(option)
   }
 
-  showNameCoin(name: string) {
-    (name) ? this.inputCoinFrom.setAttribute('placeholder', `${baseCoins[name]}`) : this.inputCoinFrom.setAttribute('placeholder', ``)
+  showNameCoin(name: string, secondInput?: boolean) {
+    if(!name) return this.inputCoinFrom.setAttribute('placeholder', ``);
+
+    if(secondInput) 
+      return this.inputResult.setAttribute('placeholder', `${baseCoins[name]}`);
+    else
+      return this.inputCoinFrom.setAttribute('placeholder', `${baseCoins[name]}`) ; 
   }
 
   searchPairs(siglaMoeda: string) {
@@ -50,11 +55,11 @@ export class VisualManagement {
     this.inputResult.value = formatResult;
   }
 
-  // searchDataBase(firstCoin: string) {
-  //   for (let coin in baseCoins) {      
-  //     if (coin === firstCoin) { return baseCoins[coin] }
-  //   }
-  // }
+  searchDataBase(selectCoin: string) {
+    for (let coin in baseCoins) {      
+      if (coin === selectCoin) { return baseCoins[selectCoin] }
+    }
+  }
 
   errorNoValues() {
     this.inputResult.value = ''

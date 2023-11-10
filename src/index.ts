@@ -1,3 +1,4 @@
+// @ts-nocheck
 // import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import './assets/css/style.css';
@@ -36,30 +37,7 @@ choiceCoinFrom.onblur = () => {
   visualManagement.searchPairs(choiceCoinFrom.value)
 }
 
-
-
-
-
-
-// const options = {
-//   url: `https://economia.awesomeapi.com.br/last/BTC-USD`,
-//   method: 'GET',
-//   headers: {
-//     'Accept': 'application/json',
-//     'Accept-Charset': 'utf-8'
-//   }
-// }
-
-// const callback_Cotacoes = (erro, res, body) => {
-//   let json = JSON.parse(body)
-//   console.log(json)
-// }
-
-// const callback_BTC = (erro, res, body) => {
-//   let json = JSON.parse(body)
-//   let BTC = json.BTCBRL['bid']
-//   let dia = json.BTCBRL['create_date']
-//   console.log(`Cotacao BTC em reais: ${BTC} mil\n`, dia)
-// }
-
-// request(options, callback_Cotacoes)
+choiceCoinTo.onchange = (event) => {
+  inputTo.value = ''
+  visualManagement.showNameCoin((event.target as HTMLSelectElement).value, true);
+}

@@ -21,7 +21,9 @@
 
   <section class="container">
     <div class="firstInput">
-      <label for="valorMoeda">Value: </label>
+      <select id="fromCoin">
+        <option value=""> --- </option>
+      </select>
       <input 
       class="input_Value_Coin" 
       type="number" 
@@ -31,27 +33,18 @@
       step="0.01"
       autofocus 
       required>
-    </div>
 
-    <div class="divSelectCoin">
-      <span>from: </span>
-      <select id="fromCoin">
-        <option value=""> --- </option>
-      </select>
-    </div>
+      <img src="../src/assets/img/Vector 2.svg">
 
-    <div class="divSelectCoin">
-      <span>to: </span>
       <select name="" id="toCoin">
         <option value=""> --- </option>
       </select>
-    </div>
 
-    <div class="divSelectCoin">
       <input 
       class="input_show_Coin" 
       type="text" 
       id="valorConversao" 
+      placeholder="resultado"
       disabled>
     </div>
 
